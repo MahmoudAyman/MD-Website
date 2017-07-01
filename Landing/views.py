@@ -10,4 +10,12 @@ from PIL import Image
 # Create your views here.
 
 def index(request):
-	return render(request, 'Landing/index.html')
+	rounds=Round.objects.all()
+	adjusted_rounds=[]
+	for i in rounds:
+		adjusted_rounds.append([])
+		adjusted_rounds[-1].append(i.startDate.year)
+		adjusted_rounds[-1].append(i.startDate.month-1)
+		adjusted_rounds[-1].append(i.startDate.day)
+	context={'rounds':rounds}
+	return render(request, 'Landing/index.html',context)

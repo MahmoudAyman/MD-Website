@@ -23,9 +23,7 @@
 	<link href="{% static 'Landing/static/css/owl.carousel.css'%}" rel="stylesheet">
     <link href="{% static 'Landing/static/css/owl.theme.css'%}" rel="stylesheet">
 	<link href="{% static 'Landing/static/css/style.css'%}" rel="stylesheet">
-	<link href="{% static 'Landing/static/css/animate.css'%}" rel="stylesheet">
-	<link href="{% static 'Landing/static/assets/css/soon.css'%}" rel="stylesheet">
-	
+	<link href="{% static 'Landing/static/css/animate.css'%}" rel="stylesheet">	
 	<!-- Magnific Popup core CSS file -->
 	<link rel="{% static 'Landing/static/stylesheet'%}" href="css/magnific-popup.css"> 
 	
@@ -145,19 +143,20 @@
 		</div>
 	</div>
 	
+	{% for i in rounds%}
 	<!-- Use it -->
         <div id ="useit" class="content-section-a">
         <div class="container">
             <div class="row">
 				<div class="col-md-12 pull-left wow fadeInRightBig">
                     <div id="timer" data-animated="FadeIn">
-                		<p id="message" style="text-align: center; font-size: 50px"></p>
-		                <div id="days" class="col-sm-2 text-center time" style="text-align: center;"></div>
-		                <div id="hours" class="col-sm-2" style="text-align: center;"></div>
-		                <div id="minutes" class="col-sm-2" style="text-align: center;"></div>
-		                <div id="seconds" class="col-sm-2" style="text-align: center;"></div>
-		                <div id="seconds" class="col-sm-2" style="text-align: center;">
-		                	<img src="{% static 'Landing/static/img/logo2.png'%}">></a>
+                		<p style="text-align: center; font-size: 50px"> Next Round</p>
+		                <div id="days{{i.number}}" class="col-sm-2" style="text-align: center; border-radius:50%;border: 2px solid rgba(44, 62, 80,1.0);"></div>
+		                <div id="hours{{i.number}}" class="col-sm-2" style="text-align: center; border-radius:50%;border: 2px solid rgba(44, 62, 80,1.0);"></div>
+		                <div id="minutes{{i.number}}" class="col-sm-2" style="text-align: center; border-radius:50%;border: 2px solid rgba(44, 62, 80,1.0);"></div>
+		                <div id="seconds{{i.number}}" class="col-sm-2 " style="text-align: center; border-radius:50%;border: 2px solid rgba(44, 62, 80,1.0);"></div>
+		                <div class="col-sm-2" style="text-align: center; padding-top: 10px;">
+		                	<img src="{% static 'Landing/static/img/logo2.png'%}">
 		                </div>
             		</div>
             		
@@ -170,6 +169,10 @@
                 </div>
         </div>
     </div>
+    <script type="text/javascript">
+		var hamada{{i.number}} = new Date ({{i.startDate.year}},{{i.startDate.month}},{{i.startDate.day}});
+	</script>
+    {% endfor %}
 
 
 	<!-- Screenshot -->
@@ -208,9 +211,9 @@
 					</div>
 				</a>
 				
-               <a href="img/gallery/5.JPG" class="image-link">
+               <a href="{% static 'Landing/static/img/gallery/5.JPG'%}" class="image-link">
 					<div class="item">
-						<img  class="{% static 'Landing/static/img-responsive img-rounded" src="img/gallery/5.JPG'%}" alt="Owl Image">
+						<img  class="img-responsive img-rounded" src="{% static 'Landing/static/img/gallery/5.JPG'%}" alt="Owl Image">
 					</div>
 				</a>
 				
@@ -380,6 +383,7 @@
 	  });
 	
 	</script>
+	
 	<!-- Smoothscroll -->
 	<script type="text/javascript" src="{% static 'Landing/static/js/jquery.corner.js'%}"></script> 
 	<script src="{% static 'Landing/static/js/wow.min.js'%}"></script>
@@ -387,8 +391,7 @@
 	 new WOW().init();
 	</script>
 	<script src="{% static 'Landing/static/js/classie.js'%}"></script>
-<!-- 	<script src="js/uiMorphingButton_inflow.js"></script>
- -->	<!-- Magnific Popup core JS file -->
+	<!-- Magnific Popup core JS file -->
 	<script src="{% static 'Landing/static/js/jquery.magnific-popup.js'%}"></script> 
 	<script src="{% static 'Landing/static/js/soon/plugins.js'%}"></script>
     <script src="{% static 'Landing/static/js/soon/jquery.themepunch.revolution.min.js'%}"></script>

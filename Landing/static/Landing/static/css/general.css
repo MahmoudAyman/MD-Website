@@ -19,6 +19,12 @@ body, html {
 
 ::selection{background:#1abc9c;color:white}
 
+.tim {
+	text-align: center;
+	border-radius: 50%;
+    border: 6px solid rgba(0, 0, 0, 1.0);
+}
+
 .abcen{position: absolute;bottom: 8%;}
 
 .abcen1{position: absolute;top: 20%;}
